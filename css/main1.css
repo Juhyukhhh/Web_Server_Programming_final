@@ -1,0 +1,92 @@
+/* cdn import */
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-image : url('https://apply.lh.or.kr/intro/intro_bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Dongle', sans-serif;
+}
+
+#container {
+    width: 100%;
+    height: auto;
+}
+
+#wrap1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+}
+
+
+#wrap2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.b1 {
+    width: 300px;
+    height: 200px;
+    background-color: greenyellow;
+    float: left;
+    margin: 10px;
+    box-sizing: border-box;
+    font-size: 35px;
+    text-align: center;
+}
+.b2 {
+    width: 300px;
+    height: 200px;
+    background-color: lightblue;
+    float: left;
+    margin: 10px;
+    box-sizing: border-box;
+    font-size: 35px;
+    text-align: center;
+}
+.b3 {
+    width: 300px;
+    height: 200px;
+    background-color: burlywood;
+    float: left;
+    margin: 10px;
+    box-sizing: border-box;
+    font-size: 35px;
+    text-align: center;
+}
+.b4 {
+    width: 300px;
+    height: 200px;
+    background-color: orange;
+    float: left;
+    margin: 10px;
+    box-sizing: border-box;
+    font-size: 35px;
+    text-align: center;
+}
+
+.people {
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 45px;
+}
+
+.button {
+    float: center;
+    margin: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    justify-content: center;
+}
