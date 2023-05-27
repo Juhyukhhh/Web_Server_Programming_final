@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.inner {
+  width: 400px;
+  margin: 0 auto;
+}
+
+header {
+  width: 1000px;
+}
+
+header .bar {
+  height: 7px;
+  background-color: #012d5e;
+}
+
+header .header_line .logo {
+  object-fit: contain;
+  width: 200px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 60px;
+  height: 100%;
+}
+
+.login .form {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  padding: 30px 0;
+}
+
+.login .form label {
+  margin-bottom: 5px;
+}
+
+.login .form input {
+  height: 40px;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  padding: 12px 10px;
+  border: 1px solid #ced4da;
+}
+
+.login .form button {
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  height: 55px;
+  color: white;
+  background-color: #3387bd;
+  border: none;
+}
+
+.login .service {
+  color: #006ca4;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.login .signin {
+  font-size: 0.8rem;
+}
+
+.login .signin a {
+  color: #006ca4;
+  font-weight: 600;
+}
+
+footer li {
+  list-style: none;
+}
+
+footer li a span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #006ca4;
+}
+
+footer li select {
+  width: 100px;
+  height: 30px;
+}
+
+footer li span {
+  font-size: 0.7rem;
+  color: #444;
+}
