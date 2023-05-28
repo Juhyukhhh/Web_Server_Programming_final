@@ -39,15 +39,19 @@ public class UserController extends HttpServlet {
 		String cmd = request.getParameter("cmd");
 		RequestDispatcher dis;
 		CustomerDTO user;
+		String id;
 		
 		switch(cmd) {
 			case "idCheck":
-				String id = request.getParameter("user_id");
+				id = request.getParameter("user_id");
 				boolean idUniqle = customerDAO.idCheck(id);
+				
 				request.setAttribute("idUniqle", idUniqle);
 				dis = request.getRequestDispatcher("signup/idCheck.jsp");
 				dis.forward(request, response);
+				
 				break;
+				
 			case "join":
 				user = CustomerDTO.builder().id(request.getParameter("id"))
 									.password(SHA256.toSHA256(request.getParameter("password")))
@@ -57,37 +61,37 @@ public class UserController extends HttpServlet {
 									.address(request.getParameter("address"))
 									.build();
 				int result = customerDAO.insert(user);
-				System.out.println(result);
+				
 				if (result == 1) {
 					user = customerDAO.login(user.getId(), user.getPassword());
 					HttpSession session = request.getSession();
 					session.setAttribute("principal", user);
 					dis = request.getRequestDispatcher("index.jsp");
 					dis.forward(request, response);
-				} else {
-					Script.back(response, "회원가입 실패");
-				}
+				} else Script.back(response, "회원가입 실패");
 				break;
+				
 			case "login":
-				user = customerDAO.login(request.getParameter("id"),
-						SHA256.toSHA256(request.getParameter("password")));
-				System.out.println(user);
-				if (user == null) {
-					Script.back(response, "로그인 실패");
-				} else {
-					HttpSession session = request.getSession();
-					session.setAttribute("principal", user);
-					dis = request.getRequestDispatcher("index.jsp");
-					dis.forward(request, response);
-				}
+				id = request.getParameter("id");
+				
+				if (!customerDAO.idCheck(id)) {
+					user = customerDAO.login(id, SHA256.toSHA256(request.getParameter("password")));
+					
+					if (user != null) {
+						HttpSession session = request.getSession();
+						session.setAttribute("principal", user);
+						dis = request.getRequestDispatcher("index.jsp");
+						dis.forward(request, response);
+					} else Script.back(response, "비밀번호를 확인해주세요");
+				} else Script.back(response, "아이디를 확인해주세요");
 				break;
+				
 			case "logout":
 				HttpSession session = request.getSession();
 				session.invalidate();
 				dis = request.getRequestDispatcher("index.jsp");
 				dis.forward(request, response);
 				break;
-			
 		}
 	}
 }

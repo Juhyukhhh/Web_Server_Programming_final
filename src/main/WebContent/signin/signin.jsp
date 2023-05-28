@@ -26,8 +26,8 @@
 			<form method="post" action="../user?cmd=login">
 				<div class="form">
 					<label>이메일 로그인</label>
-					<input name="id" type="text" placeholder="아이디" />
-					<input name="password" type="password" placeholder="비밀번호" />
+					<input name="id" type="text" placeholder="아이디" required/>
+					<input name="password" type="password" placeholder="비밀번호" required/>
 					<button type="submit">로그인</button>
 				</div>
 			</form>

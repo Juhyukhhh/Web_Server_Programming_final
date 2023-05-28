@@ -25,9 +25,9 @@
 	<section class="login">
 		<div class="inner">
 			<form name="joinForm" onsubmit="return join()">
-		        <input name="id" placeholder="아이디" type="text" required/>
+		        <input name="id" placeholder="아이디" type="text" onkeydown="setIdUncheck()" required/>
 		        <button type="button" onclick="idCheck()" class="checkId">중복체크</button>
-		        <input name="idDuplication" type="text" value="idUncheck"/><br>
+		        <input name="idDuplication" type="hidden" value="idUncheck"/><br>
 		        <input name="password" placeholder="비밀번호" type="password" required><br>
 		        <input name="password2" placeholder="비밀번호 확인" type="password" required><br>
 		        <input name="name" placeholder="이름" type="text" required/><br>
@@ -69,7 +69,7 @@
 			alert("아이디를 입력해주세요");
 			joinForm.id.focus();
 		} else {
-			window.open("../user?cmd=idCheck&user_id=" + id, "hiddenFrame")
+			window.open("../user?cmd=idCheck&user_id=" + id)
 		}
 	}
 	
